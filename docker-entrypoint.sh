@@ -6,7 +6,8 @@ if [[ $# -lt 1 ]] || [[ "$1" == "-"* ]]; then
         "--redirect-url=$GOOGLE_AUTH_PROXY_REDIRECT_URL" \
         "--upstream=$GOOGLE_AUTH_PROXY_UPSTREAM" "--google-apps-domain=$GOOGLE_AUTH_PROXY_GOOGLE_APPS_DOMAIN" \
         "--cookie-secret=$GOOGLE_AUTH_PROXY_COOKIE_SECRET" "--client-secret=$GOOGLE_AUTH_PROXY_CLIENT_SECRET" \
-        "--client-id=$GOOGLE_AUTH_PROXY_CLIENT_ID" "--pass-basic-auth=$GOOGLE_AUTH_PROXY_PASS_BASIC_AUTH"
+        "--client-id=$GOOGLE_AUTH_PROXY_CLIENT_ID" "--pass-basic-auth=$GOOGLE_AUTH_PROXY_PASS_BASIC_AUTH" \
+        "--http-address=:${GOOGLE_AUTH_PROXY_HTTP_PORT:-4180}"
 else
     # Running some other command
     exec "$@"
