@@ -19,7 +19,7 @@ import (
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
 	"github.com/bitly/go-simplejson"
-	directory "google.golang.org/api/admin/directory_v1"
+	directory "google.golang.org/api/admin/directory/v1"
 )
 
 const pingPath = "/ping"
