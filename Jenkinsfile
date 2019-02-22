@@ -29,7 +29,9 @@ builderNode {
       promoteDockerImage(imageName: imageName, toTags: [imageVersion, cacheImageTag])
     }
     if (env.BRANCH_NAME == 'master') {
-      deployNomadService(group: "ci-tool-ops", service: "google-auth-proxy", stack: "dev-us-east-1", version: imageVersion)
+      stage("deploy to dev-us-east-1") {
+        deployNomadService(group: "ci-tool-ops", service: "google-auth-proxy", stack: "dev-us-east-1", version: imageVersion)
+      }
     }
   }
 }
