@@ -28,5 +28,9 @@ builderNode {
       // Branch- promote to its name for caching, and also to its imageVersion for posterity.
       promoteDockerImage(imageName: imageName, toTags: [imageVersion, cacheImageTag])
     }
+
+    if (env.BRANCH_NAME == 'aws-release/0.0.1') { 
+      deployNomadService(group: "ci-tool-ops", service: "google-auth-proxy", stack: "dev-us-east-1", version: imageVersion) 
+    }
   }
 }
