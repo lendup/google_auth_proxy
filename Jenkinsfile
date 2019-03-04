@@ -20,13 +20,13 @@ builderNode {
   checkout scm
   imageVersion = lendupVersion()
   stage("build image") {
-    imageName = buildDockerImage(repository: "ci-tool-ops/google-auth-proxy", cacheImageTag: cacheImageTag)
+    imageName = buildLendupDockerImage(repository: "ci-tool-ops/google-auth-proxy", cacheImageTag: cacheImageTag)
   }
 
   if (!env.CHANGE_ID) {
     stage("promote to ${cacheImageTag}") {
       // Branch- promote to its name for caching, and also to its imageVersion for posterity.
-      promoteDockerImage(imageName: imageName, toTags: [imageVersion, cacheImageTag])
+      promoteLendupDockerImage(imageName: imageName, toTags: [imageVersion, cacheImageTag])
     }
 
     if (env.BRANCH_NAME == 'aws-release/0.0.1') { 
