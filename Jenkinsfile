@@ -18,7 +18,7 @@ builderNode {
   }
 
   checkout scm
-  imageVersion = projectVersion()
+  imageVersion = lendupVersion()
   stage("build image") {
     imageName = buildDockerImage(repository: "ci-tool-ops/google-auth-proxy", cacheImageTag: cacheImageTag)
   }
