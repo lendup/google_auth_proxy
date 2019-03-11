@@ -29,7 +29,7 @@ builderNode {
       promoteDockerImage(imageName: imageName, toTags: [imageVersion, cacheImageTag])
     }
 
-    if (env.BRANCH_NAME == 'master') {
+    if (env.BRANCH_NAME == 'aws-release-0.0.2') {
       stage("deploy to dev-us-east-1") {
         deployNomadService(group: "ci-tool-ops", service: "google-auth-proxy", stack: "dev-us-east-1", version: imageVersion)
       }
