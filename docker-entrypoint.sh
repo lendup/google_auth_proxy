@@ -18,7 +18,6 @@ if [[ $# -lt 1 ]] || [[ "$1" == "-"* ]]; then
         "--client-id=$GOOGLE_AUTH_PROXY_CLIENT_ID" \
         "--pass-host-header=$GOOGLE_AUTH_PROXY_PASS_HOST_HEADER" \
         "--pass-basic-auth=$GOOGLE_AUTH_PROXY_PASS_BASIC_AUTH" \
-        "--skip-auth-preflight=$GOOGLE_AUTH_PROXY_SKIP_AUTH_PREFLIGHT" \
         "--http-address=:${GOOGLE_AUTH_PROXY_HTTP_PORT:-4180}" \
         "${upstream_args[@]}"
 else
